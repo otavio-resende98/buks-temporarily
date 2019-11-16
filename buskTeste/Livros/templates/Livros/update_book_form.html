@@ -1,0 +1,192 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <title>Cadastrar Livro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <div class="nav-text-primary">
+                        <h2>Buks</h2>
+                        <p>A biblioteca que move o mundo...</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="my-account">
+                        <img src="{% static '/images/my-account.svg' %}" alt="">
+                        <p>Minha Conta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="list-content">
+                <ul>
+                    <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
+                    <li><a class="tablinks active" href="#" title="Livros">Livros</a></li>
+                    <li><a class="tablinks" title="Clientes">Clientes</a></li>
+                    <li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
+                    <li><a class="tablinks" title="Compras">Compras</a></li>
+                    <li><a class="tablinks" title="Recebimento">Recebimento</a></li>
+                    <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tabcontent" id="livro-content">
+                <div class="livro">
+                    <h1>Livros - opções</h1>
+                    <div class="livro-option">
+                        <div class="livro-option-button">
+                            <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
+                                    livro</button></a>
+                            <a href="/update/book/"><button type="button" class="btn-book activeButton">Alterar
+                                    livro</button></a>
+                            <button type="button" class="btn-book">Consultar livro</button>
+                            <button type="button" class="btn-book">Excluir livro</button>
+                        </div>
+                    </div>
+                    <div class="livro-pages">
+                        <div class="livroContent" id="cadastroLivro">
+                            <div class="cadastro-content">
+                                <div class="cadastro-form">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="row-cadastro-form">
+                                            <label for="{{ form.isbn.id_for_label }}">ISBN</label>
+                                            <input type="text" id="{{ form.isbn.id_for_label }}"
+                                                name="{{ form.isbn.name }}"
+                                                value="{{ form.isbn.value|default_if_none:'' }}"
+                                                placeholder="Código ISBN" style="width: 40%;">
+                                            {{ form.isbn.errors }}
+
+                                            <!-- 
+                                            <label>Capa</label>
+                                            <a style="width: 40%;">{{ form.capa }}</a> -->
+                                            <label for="{{ form.capa.id_for_label }}">Capa</label>
+                                            <input type="file" id="{{ form.capa.id_for_label }}"
+                                                name="{{ form.capa.name }}" value="{{ form.capa.url }}"
+                                                style="width: 40%;">
+                                        </div>
+
+                                        <div class="row-cadastro-form">
+                                            <label for="{{ form.titulo.id_for_label }}">Titulo</label>
+                                            <input type="text" id="{{ form.titulo.id_for_label }}"
+                                                name="{{ form.titulo.name }}"
+                                                value="{{ form.titulo.value|default_if_none:'' }}"
+                                                placeholder="Tútulo do Livro" style="width: 22%;">
+
+                                            <label for="{{ form.subtitulo.id_for_label }}">Subtítulo</label>
+                                            <input type="text" id="{{ form.subtitulo.id_for_label }}"
+                                                name="{{ form.subtitulo.name }}"
+                                                value="{{ form.subtitulo.value|default_if_none:'' }}"
+                                                placeholder="Subtítulo do Livro" style="width: 22%;">
+
+                                            <label for="{{ form.autor.id_for_label }}">Autor</label>
+                                            <input type="text" id="{{ form.autor.id_for_label }}"
+                                                name="{{ form.autor.name }}"
+                                                value="{{ form.autor.value|default_if_none:'' }}"
+                                                placeholder="Nome do Autor" style="width: 22%;">
+                                        </div>
+
+                                        <div class="row-cadastro-form">
+                                            <label for="{{ form.editora.id_for_label }}">Editora</label>
+                                            <input type="text" id="{{ form.editora.id_for_label }}"
+                                                name="{{ form.editora.name }}"
+                                                value="{{ form.editora.value|default_if_none:'' }}"
+                                                placeholder="Nome da Editora" style="width: 22%;">
+
+                                            <label for="{{ form.edicao.id_for_label }}">Edição</label>
+                                            <input type="text" id="{{ form.edicao.id_for_label }}"
+                                                name="{{ form.edicao.name }}"
+                                                value="{{ form.edicao.value|default_if_none:'' }}" placeholder="Edição"
+                                                style="width: 22%;">
+
+                                            <label for="{{ form.ano.id_for_label }}">Ano</label>
+                                            <input type="text" id="{{ form.ano.id_for_label }}"
+                                                name="{{ form.ano.name }}"
+                                                value="{{ form.ano.value|default_if_none:'' }}"
+                                                placeholder="Ano do Livro" style="width: 22%;">
+                                        </div>
+
+                                        <div class="row-cadastro-form">
+                                            <label for="{{ form.paginas.id_for_label }}">Nº de páginas</label>
+                                            <input type="text" id="{{ form.paginas.id_for_label }}"
+                                                name="{{ form.paginas.name }}"
+                                                value="{{ form.paginas.value|default_if_none:'' }}"
+                                                placeholder="Páginas" style="width: 20%;">
+
+                                            <label for="{{ form.genero.id_for_label }}">Gênero</label>
+                                            <input type="text" id="{{ form.genero.id_for_label }}"
+                                                name="{{ form.genero.name }}"
+                                                value="{{ form.genero.value|default_if_none:'' }}"
+                                                placeholder="Gênero do Livro" style="width: 20%;">
+
+                                            <label for="{{ form.is_new.id_for_label }}">Novo ou usado (binário)</label>
+
+                                            <label class="switch">
+                                                <input type="checkbox" class="btn-slider"
+                                                    {% ifequal form.is_new.value True  %} checked="true"
+                                                    {% endifequal %} id="{{ form.is_new.id_for_label }}"
+                                                    name="{{ form.is_new.name }}">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row-cadastro-form">
+                                            <label>Preço de compra</label>
+                                            <a style="width: 18%;">{{ form.preco_compra }}</a>
+                                            <!-- <label for="{{ form.preco_compra.id_for_label }}">Preço de compra</label>
+                                            <input type="text" id="{{ form.preco_compra.id_for_label }}"
+                                                name="{{ form.preco_compra.name }}"
+                                                value="{{ form.preco_compra.value|default_if_none:'' }}"
+                                                placeholder="R$ 0,00" style="width: 18%"> -->
+
+                                            <label>Preço de venda</label>
+                                            <a style="width: 18%;">{{ form.preco_venda }}</a>
+                                            <!-- <label for="{{ form.preco_venda.id_for_label }}">Preço de venda</label>
+                                            <input type="text" id="{{ form.preco_venda.id_for_label }}"
+                                                name="{{ form.preco_venda.name }}"
+                                                value="{{ form.preco_venda.value|default_if_none:'' }}"
+                                                placeholder="R$ 0,00" style="width: 18%"> -->
+
+                                            <label for="{{ form.quantidade.id_for_label }}">Quantidade</label>
+                                            <input type="text" id="{{ form.quantidade.id_for_label }}"
+                                                name="{{ form.quantidade.name }}"
+                                                value="{{ form.quantidade.value|default_if_none:0 }}" placeholder="Qtd"
+                                                style="width: 8%">
+                                        </div>
+                                        <div class="row-cadastro-form">
+                                            <label for="{{ form.sinopse.id_for_label }}">Sinopse</label>
+                                            <input class="text-area" id="{{ form.sinopse.id_for_label }}"
+                                                name="{{ form.sinopse.name }}"
+                                                value="{{ form.sinopse.value|default_if_none:'' }}"
+                                                placeholder="Resumo básico da hisória do Livro..."
+                                                style="width: 88%; height: 60px;"></input>
+                                        </div>
+
+                                        <div class="row-cadastro-btn">
+                                            <button type="reset">Limpar</button>
+                                            <button type="submit">Atualizar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

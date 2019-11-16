@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Jomolhari|Liu+Jian+Mao+Cao|Modak&display=swap');
+
+/* Variaveis */
+
+:root {
+    --font-text-large: 'Jomolhari', serif;
+    --font-text-medium: 'Modak', cursive;
+    --font-text-small: 'Liu Jian Mao Cao', cursive;
+    --chocolate: #D2691E;
+    --chocolate-dark: #8B4513;
+    --white: #fff;
+    --black: #333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--chocolate);
+}
+
+.container .container-text {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.container-text .container-text-left {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.container-text .container-text-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.container-text .container-text-left h2 {
+    padding: 0;
+    margin: 0;
+    margin-right: 2%;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 80px;
+    color: var(--chocolate-dark);
+}
+
+.container-text .container-text-right span {
+    padding: 0;
+    margin: 0;
+    margin-left: 2%;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--chocolate-dark);
+}
+
+.container .login {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--white);
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 15% 85%;
+    -webkit-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 45px -2px rgba(0,0,0,0.75);
+}
+
+.login .login-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login-text h2 {
+    padding: 0;
+    margin: 0;
+    margin-left: 2%;
+    font-family: var(--font-text-small);
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: var(--chocolate-dark);
+}
+
+.login .login-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 15%;
+    padding: 0 5%;
+    flex-direction: column;
+}
+
+.login-content label {
+    font-family: var(--font-text-large);
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 3%;
+    letter-spacing: 3px;
+    color: var(--chocolate-dark);
+}
+
+.login-content input {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-bottom: 2px var(--chocolate-dark) solid;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: var(--font-text-large);
+    font-size: 15px;
+    color: var(--chocolate-dark);   
+    letter-spacing: 2px;
+}
+
+.login-content input:valid {
+    padding-left: 5px;
+}
+
+.login-content .login-content-button button {
+    font-family: var(--font-text-small);
+    background: var(--chocolate);
+    border: none;
+    color: var(--white);
+    border-radius: 10px;
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+}
+
+.login-content .login-content-button button:hover {
+    background: var(--chocolate-dark);
+    cursor: pointer;
+}
+
+.login-content input:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.login-content input::placeholder {
+    font-size: 22px;
+    font-family: var(--font-text-small);
+    opacity: 0.6;
+    padding-left: 20px;
+    letter-spacing: 3px;
+}
+
+.login-content .login-content-button {
+    width: 88%;
+    height: 100%;
+    display: flex;
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content .not-account {
+    padding: 0;
+    margin-top: 3%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.not-account span {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: var(--font-text-large);
+    color: var(--chocolate-dark);
+    opacity: 0.5;
+}
+
+.not-account button {
+    font-size: 14px;
+    font-family: var(--font-text-large);
+    font-family: var(--font-text-large);
+    background: var(--chocolate-dark);
+    color: var(--white);
+    width: 20%;
+    border: none;
+    border-radius: 6px;
+    opacity: 0.7;
+}
+
+.not-account button:hover {
+    background: var(--chocolate);
+    cursor: pointer;
+}
+

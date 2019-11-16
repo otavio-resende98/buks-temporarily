@@ -1,0 +1,98 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <div class="nav-text-primary">
+                        <h2>Buks</h2>
+                        <p>A biblioteca que move o mundo...</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="my-account">
+                        <img src="{% static '/images/my-account.svg' %}" alt="">
+                        <p>Minha Conta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="list-content">
+                <ul>
+                    <li><a class="tablinks active" href="#" title="Estante" id="defaultopenPage">Estantes</a></li>
+                    <li><a class="tablinks" href="/register/book" title="Livros">Livros</a></li>
+                    <li><a class="tablinks"  title="Clientes">Clientes</a></li>
+                    <li><a class="tablinks"  title="Empréstimo">Empréstimo</a></li>
+                    <li><a class="tablinks"  title="Compras">Compras</a></li>
+                    <li><a class="tablinks"  title="Recebimento">Recebimento</a></li>
+                    <li><a class="tablinks"  title="Funcionarios">Funcionarios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tabcontent" id="estante-content">
+                <div class="estante">
+                    <div class="gallery">
+                        <div class="galery-books">
+                            <div class="book">
+                                <img src="{% static 'images/livro1.png' %}" alt="">
+                                <p>Still Holding</p>
+                                <span>Phill Huntsberry</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro2.png' %}" alt="">
+                                <p>Silent Women</p>
+                                <span>Aileen Nedd</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro3.png' %}" alt="">
+                                <p>Sendless Summer</p>
+                                <span>Danny Alexander</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro4.png' %}" alt="">
+                                <p>Foul Play</p>
+                                <span>Kent's Baxter</span>
+                            </div>
+                        </div>
+                        <div class="galery-books">
+                            <div class="book">
+                                <img src="{% static 'images/livro5.png' %}" alt="">
+                                <p>Musing of Millner</p>
+                                <span>Kimberlin</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro6.png' %}" alt="">
+                                <p>Pattern Maker</p>
+                                <span>Kerry Johnston</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro7.png' %}" alt="">
+                                <p>Love at first click</p>
+                                <span>Michelle Anderson</span>
+                            </div>
+                            <div class="book">
+                                <img src="{% static 'images/livro8.png' %}" alt="">
+                                <p>Jass in the Urban Jungle</p>
+                                <span>Cláudia Alves</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+</body>
+</html>

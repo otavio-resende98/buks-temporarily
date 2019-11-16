@@ -1,0 +1,103 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <title>Alterar Livro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <div class="nav-text-primary">
+                        <h2>Buks</h2>
+                        <p>A biblioteca que move o mundo...</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="my-account">
+                        <img src="../assets/my-account.svg" alt="">
+                        <p>Minha Conta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="list-content">
+                <ul>
+                    <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
+                    <li><a class="tablinks active" href="#" title="Livros">Livros</a></li>
+                    <li><a class="tablinks" title="Clientes">Clientes</a></li>
+                    <li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
+                    <li><a class="tablinks" title="Compras">Compras</a></li>
+                    <li><a class="tablinks" title="Recebimento">Recebimento</a></li>
+                    <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tabcontent" id="livro-content">
+                <div class="livro">
+                    <h1>Livros - opções</h1>
+                    <div class="livro-option">
+                        <div class="livro-option-button">
+                            <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
+                                    livro</button></a>
+                            <button type="button" class="btn-book activeButton">Alterar livro</button>
+                            <button type="button" class="btn-book">Consultar livro</button>
+                            <button type="button" class="btn-book">Excluir livro</button>
+                        </div>
+                    </div>
+                    <div class="livro-pages">
+                        <div class="livroContent" id="consultaLivro">
+                            <div class="consulta-content">
+                                <div class="consulta-content-content">
+                                    <label for="">Qual Livro você deseja
+                                        alterar?</label>
+                                    <div class="row-consulta">
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <input name="search_book" type="text">
+                                            <button type="submit">&#128269</button>
+                                        </form>
+                                    </div>
+                                    <div class="search-result-procura">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>ISBN</th>
+                                                    <th>Titulo</th>
+                                                    <th>Alterar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {%  for Livro in Livros %}
+                                                <tr>
+                                                    <td>{{ "ISBN: "}} {{ Livro.isbn }}</td>
+                                                    <td>{{ "Título: "}} {{ Livro.titulo }}</td>
+                                                    <td><a href="{% url 'Livros:update_book_form' Livro.isbn %}"
+                                                            style="color: black;">&#9998</a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container-text">
+            <div class="container-text-left">
+                <h2></h2>
+            </div>
+            <div class="container-text-center"></div>
+            <div class="container-text-right">
+                <h2></h2>
+            </div>
+        </div>
+        <div class="login">
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="login-text">
+                    <h2>Buks - Login</h2>
+                </div>
+                <div class="login-content">
+                    <label for="{{ form.username.id_for_label }}">Usuário</label>
+                    <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" placeholder="Usuario..." autocomplete="false">
+                    {{ form.username.errors }}
+                    <label for="{{ form.password.id_for_label }}">Senha</label>
+                    <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" placeholder="Senha...">
+                    {{ form.password.errors }}
+                    <div class="login-content-button">
+                        <button type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

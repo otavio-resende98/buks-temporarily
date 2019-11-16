@@ -1,0 +1,1147 @@
+@import url('https://fonts.googleapis.com/css?family=Jomolhari|Liu+Jian+Mao+Cao|Modak&display=swap');
+
+/*  Coded by  OFS - Group 
+    Since 2019/02
+*/
+
+/* Variaveis */
+
+:root {
+    --font-text-large: 'Jomolhari', serif;
+    --font-text-medium: 'Modak', cursive;
+    --chocolate: #D2691E;
+    --chocolate-dark: #8B4513;
+    --white: #fff;
+    --black: #333;
+}
+
+/* Reset no body */
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    font-size: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    background: url('../images/library.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+}
+
+.header .nav {
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.nav .nav-left {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nav-left .nav-text-primary {
+    width: 20%;
+    height: 60%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-right {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.nav-right .my-account {
+    width: 80%;
+    height: 20%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-top: 10px var(--chocolate) solid;
+}
+
+.my-account img {
+    cursor: pointer;
+}
+
+.my-account p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-left: 5%;
+}
+
+.my-account p:hover {
+    cursor: pointer;
+}
+
+.header .nav .nav-left .nav-text-primary h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 280%;
+    letter-spacing: 7px;
+    font-family: var(--font-text-large);
+    color: var(--chocolate-dark);
+}
+
+.header .nav .nav-left .nav-text-primary p {
+    margin: 0;
+    padding: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--chocolate-dark);
+    font-family: var(--font-text-large);
+}
+
+
+.container .list {
+    width: 100%;
+    height: 60px;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+}
+
+.list .list-content {
+    width: 90%;
+    height: 60px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--white);
+    top: 0;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: var(--black);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+li a:hover {
+    background-color: var(--chocolate-dark);
+    color: var(--white);
+}
+
+.active {
+    background-color: var(--chocolate-dark);
+    color: var(--white);
+}
+
+.container .content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Parte das definições dos Corpos (Abas) do Site **************/
+
+.content #estante-content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #livro-content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #cliente-content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #emprestimo-content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #compra-content {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #recebimento-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.content #funcionario-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+/* Parte da Aba Estante ***********************/
+
+#estante-content .estante {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.estante .gallery {
+    width: 80%;
+    height: 80%;
+    background: whitesmoke;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    animation: up 1.5s;
+}
+
+.gallery .galery-books {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background: whitesmoke;
+}
+
+.galery-books>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px var(--chocolate-dark) solid;
+}
+
+.book img {
+    width: 30%;
+    border-radius: 7px;
+}
+
+.book p {
+    margin: 0;
+    margin-top: 2%;
+    font-family: var(--font-text-large);
+    letter-spacing: 2px;
+    color: var(--chocolate-dark);
+    font-size: 18px;
+}
+
+.book span {
+    margin: 0;
+    margin-top: 2%;
+    font-family: var(--font-text-large);
+    letter-spacing: 2px;
+    color: var(--black);
+    font-size: 15px;
+}
+
+.book p:hover {
+    color: var(--chocolate);
+}
+
+.book span:hover {
+    color: black;
+}
+
+.book img:hover {
+    cursor: pointer;
+    width: 33%;
+    -webkit-animation: hover;
+    animation: hover forwards;
+    animation-duration: 0.5s;
+}
+
+/* Parte da Aba Livros ************************/
+
+#livro-content .livro {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-text-large);
+    letter-spacing: 3px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.livro h1 {
+    margin: 30px;
+}
+
+.livro .livro-option {
+    width: 50%;
+    height: 10%;
+}
+
+.livro-option .livro-option-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.livro-option-button .btn-book {
+    margin: 0 20px;
+    padding: 10px 20px;
+    border: none;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.livro-option-button .btn-book:hover {
+    cursor: pointer;
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+.livro .livro-pages {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.livro-pages #cadastroLivro {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.livro-pages #alteraLivro {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.livro-pages #consultaLivro {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.livro-pages #excluirLivro {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.activeButton {
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+.cadastro-content {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cadastro-content .cadastro-form {
+    width: 80%;
+    height: 90%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro-form form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    color: var(--black);
+    font-family: var(--font-text-large);
+}
+
+.cadastro-form .row-cadastro-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cadastro-form .row-cadastro-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cadastro-form form .row-cadastro-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--chocolate);
+    letter-spacing: 2px;
+}
+
+.cadastro-form form .row-cadastro-form input {
+    border: none;
+    border-bottom: 2px var(--chocolate) solid;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: var(--font-text-large);
+    font-size: 14px;
+}
+
+
+.row-cadastro-form .switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-cadastro-form .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.row-cadastro-form .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.row-cadastro-form .slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 1px;
+    top: 4px;
+    background-color: whitesmoke;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.row-cadastro-form .btn-slider:checked+.slider {
+    background-color: var(--chocolate);
+}
+
+.row-cadastro-form .btn-slider:focus+.slider {
+    background-clip: var(--white);
+    box-shadow: 0 0 1px var(--chocolate);
+}
+
+.row-cadastro-form .btn-slider:checked+.slider:before {
+    -webkit-transform: translateX(17px);
+    -ms-transform: translateX(17px);
+    transform: translateX(17px);
+    background-color: whitesmoke;
+}
+
+.cadastro-form form .row-cadastro-form input:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 2px var(--chocolate-dark) solid;
+}
+
+.cadastro-form form .row-cadastro-form .text-area {
+    border: 1px var(--chocolate) solid;
+    outline: 0;
+}
+
+.cadastro-form form .row-cadastro-form .text-area:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px var(--chocolate-dark) solid;
+}
+
+.cadastro-form form .row-cadastro-btn button[type="reset"] {
+    width: 120px;
+    height: 35px;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background: grey;
+    color: var(--white);
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.cadastro-form form button[type="submit"] {
+    width: 120px;
+    height: 35px;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background: var(--chocolate-dark);
+    color: var(--white);
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.cadastro-form form button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.altera-content {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.altera-content .altera-form {
+    width: 80%;
+    height: 90%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.altera-form form {
+    width: 80%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: var(--black);
+    font-family: var(--font-text-large);
+}
+
+.consulta-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.consulta-content .consulta-content-content {
+    width: 80%;
+    height: 90%;
+    background: var(--white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.consulta-content-content label {
+    color: var(--chocolate-dark);
+    margin: 30px 0;
+    font-family: var(--font-text-large);
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.consulta-content-content .row-consulta {
+    display: inline;
+}
+
+.row-consulta input {
+    width: 300px;
+    border: none;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.row-consulta input:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.row-consulta button {
+    background: var(--chocolate-dark);
+    border: none;
+    color: var(--white);
+}
+
+.row-consulta button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.consulta-content-content .search-result-procura {
+    margin-top: 30px;
+    width: 90%;
+    height: 60%;
+    background: var(--white);
+    overflow: scroll;
+}
+
+.excluir-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.excluir-content .excluir-content-content {
+    width: 80%;
+    height: 90%;
+    background: var(--white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.excluir-content-content label {
+    color: var(--chocolate-dark);
+    margin: 30px 0;
+    font-family: var(--font-text-large);
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.excluir-content-content .row-consulta {
+    display: inline;
+}
+
+.row-consulta input {
+    width: 300px;
+    border: none;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.row-consulta input:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.row-consulta button {
+    background: var(--chocolate-dark);
+    border: none;
+    color: var(--white);
+}
+
+.row-consulta button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.excluir-content-content .search-result-excluir {
+    margin-top: 30px;
+    width: 90%;
+    height: 60%;
+    background: var(--white);
+    overflow: scroll;
+}
+
+/* Parte da Aba Cliente ************************/
+
+#cliente-content .cliente {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-text-large);
+    letter-spacing: 3px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.cliente h1 {
+    margin: 30px;
+}
+
+.cliente .cliente-option-1 {
+    width: 60%;
+    height: 10%;
+}
+
+.cliente-option-1 .cliente-option-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.cliente-option-button .btn-cliente {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cliente-option-button .btn-cliente:hover {
+    cursor: pointer;
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+
+.cliente .cliente-option {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.cliente .cliente-pages {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.cliente-pages #cadastroCliente {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.cliente-pages #alteraCliente {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.cliente-pages #consultaCliente {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+
+/* Parte da Aba Emprestimo ************************/
+
+#emprestimo-content .emprestimo {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-text-large);
+    letter-spacing: 3px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.emprestimo h1 {
+    margin: 30px;
+}
+
+.emprestimo .emprestimo-option-1 {
+    width: 60%;
+    height: 10%;
+}
+
+.emprestimo-option-1 .emprestimo-option-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.emprestimo-option-button .btn-emprestimo {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    font-family: var(--font-text-large);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.emprestimo-option-button .btn-emprestimo:hover {
+    cursor: pointer;
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+
+.emprestimo .emprestimo-option {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.emprestimo .emprestimo-pages {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.emprestimo-pages #cadastroEmprestimo {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    justify-content: center;
+    align-items: center;
+}
+
+.emprestimo-pages #alteraEmprestimo {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.emprestimo-pages #consultaEmprestimo {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.emprestimo-pages #excluirEmprestimo {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.activeButton {
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+/* Parte da Aba Compra ************************/
+
+#compra-content .compra {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-text-large);
+    letter-spacing: 3px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+#compra-content .compra {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-text-large);
+    letter-spacing: 3px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.compra h1 {
+    margin: 30px;
+}
+
+.compra-option-button .btn-compra:hover {
+    cursor: pointer;
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+/* PARTE DA TABELA DO COMPRA DE LIVROS *******************/
+
+.compra-form {
+    width: 85%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    font-family: var(--font-text-large);
+}
+
+.compra-form form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    padding: 0 40px;
+}
+
+.row-form-compra {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.row-form-compra-btn {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.row-form-compra label {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.row-form-compra input {
+    font-size: 15px;
+    padding: 0 10px;
+    letter-spacing: 2px;
+    color: var(--chocolate-dark);
+    text-align: center;
+}
+
+.row-form-compra input[type="date"] {
+    color: var(--chocolate);
+}
+
+.row-form-compra select {
+    background: var(--white);
+    color: var(--chocolate-dark);
+    border: none;
+    border-bottom: 2px var(--chocolate) solid;
+}
+
+.row-form-compra .btn-add {
+    width: 10%;
+    margin-left: 5%;
+    background: var(--chocolate);
+    border: none;
+    color: var(--white);
+    font-family: var(--font-text-large);
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.row-form-compra table {
+    background-color: whitesmoke;
+    width: 100%;
+    color: var(--chocolate);
+    font-size: 16px;
+    text-align: center;
+}
+
+.row-form-compra table th,
+td {
+    width: 20%;
+}
+
+.row-form-compra table,
+th,
+td {
+    border: 1px solid var(--black);
+}
+
+.row-form-compra select:focus {
+    outline: 0;
+}
+
+/* Fim do COMPRA DE LIVROS ************/
+
+.compra .compra-option {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.compra .compra-pages {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+}
+
+.compra-pages #cadastroCompra {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    justify-content: center;
+    align-items: center;
+}
+
+.compra-pages #consultaCompra {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+}
+
+.activeButton {
+    background-color: var(--chocolate);
+    color: var(--white);
+}
+
+#cadastroCompra .compra-content {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.compra-content .compra-form {
+    width: 80%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: var(--black);
+    font-family: var(--font-text-large);
+    background: var(--white);
+}
+
+/* Parte da Aba Recebimento ************************/
+
+#recebimento-content .recebimento {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
+/* Parte da Aba Funcionario ************************/
+
+#funcionario-content .funcionario {
+    width: 100%;
+    height: 100%;
+    background: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
+/Parte das Keyframes (Animações) do site *******************/
+
+@keyframes hover {
+    from {
+        width: 30%;
+        opacity: 0.2;
+    }
+
+    to {
+        width: 34%;
+        opacity: 1;
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translateY(300px);
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.search-result-procura table {
+    background-color: whitesmoke;
+    width: 100%;
+    color: var(--chocolate);
+    font-size: 16px;
+    text-align: center;
+    border-collapse: collapse;
+    border: none;
+}
+
+.search-result-procura table th,
+td {
+    width: 20%;
+}
+
+.search-result-procura table,
+th,
+td {
+    border: 1px solid var(--black);
+}
