@@ -61,3 +61,19 @@ def read_book(request):
     data['Livros'] = Livro.objects.all()
 
     return render(request, 'Livros/read_book.html', data)
+
+@login_required
+def delete_book(request):
+    data = {}
+    data['Livros'] = Livro.objects.all()
+
+    return render(request, 'Livros/delete_book.html', data)
+
+@login_required
+def delete_book_confirm(request, pk):
+
+    livro = Livro.objects.get(pk=pk)
+    livro.delete()
+
+    return redirect('Livros:delete_book')
+

@@ -53,7 +53,7 @@
                             <a href="/update/book"><button type="button" class="btn-book activeButton">Alterar
                                     livro</button></a>
                             <a href="/read/book"><button type="button" class="btn-book">Consultar livro</button></a>
-                            <button type="button" class="btn-book">Excluir livro</button>
+                            <a href="/delete/book"><button type="button" class="btn-book">Excluir livro</button></a>
                         </div>
                     </div>
                     <div class="livro-pages">
@@ -67,7 +67,8 @@
                                             <input type="text" id="{{ form.isbn.id_for_label }}"
                                                 name="{{ form.isbn.name }}"
                                                 value="{{ form.isbn.value|default_if_none:'' }}"
-                                                placeholder="Código ISBN" style="width: 40%;" disabled>
+                                                placeholder="Código ISBN" style="width: 40%; background: #ccc;"
+                                                readonly>
                                             {{ form.isbn.errors }}
 
                                             <!-- 

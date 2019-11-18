@@ -1101,31 +1101,7 @@ td {
     opacity: 0.9;
 }
 
-/*Parte das Keyframes (Animações) do site *******************/
-
-@keyframes hover {
-    from {
-        width: 30%;
-        opacity: 0.2;
-    }
-
-    to {
-        width: 34%;
-        opacity: 1;
-    }
-}
-
-@keyframes up {
-    from {
-        transform: translateY(300px);
-        opacity: .5;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+/* Parte da Tabela de Busca do Projeto ***********************************/
 
 .search-result-procura table {
     background-color: whitesmoke;
@@ -1159,4 +1135,30 @@ td {
 
 .search-result-procura table tr:nth-child(even) {
     background: rgb(236, 230, 230);
+}
+
+/*Parte das Keyframes (Animações) do site *******************/
+
+@keyframes hover {
+    from {
+        width: 30%;
+        opacity: 0.2;
+    }
+
+    to {
+        width: 34%;
+        opacity: 1;
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translateY(300px);
+        opacity: .5;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
