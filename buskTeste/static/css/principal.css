@@ -680,8 +680,8 @@ button[type="reset"] {
 }
 
 .row-read-photo .photo-content {
-    width: 90%;
-    height: 85%;
+    width: 200px;
+    height: 200px;
     border: 2px var(--chocolate-dark) solid;
 }
 
