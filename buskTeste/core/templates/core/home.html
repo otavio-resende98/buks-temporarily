@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,22 @@
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
     <title>Home</title>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <div class="nav">
                 <div class="nav-left">
                     <div class="nav-text-primary">
-                        <h2>Buks</h2>
-                        <p>A biblioteca que move o mundo...</p>
+                        <style type="text/css">
+                            a:link {
+                                text-decoration: none;
+                            }
+                        </style>
+                        <a href="/" class="text-decoration">
+                            <h2>Buks</h2>
+                            <p>A biblioteca que move o mundo...</p>
+                        </a>
                     </div>
                 </div>
                 <div class="nav-right">
@@ -32,11 +41,11 @@
                 <ul>
                     <li><a class="tablinks active" href="#" title="Estante" id="defaultopenPage">Estantes</a></li>
                     <li><a class="tablinks" href="/register/book" title="Livros">Livros</a></li>
-                    <li><a class="tablinks"  title="Clientes">Clientes</a></li>
-                    <li><a class="tablinks"  title="Empréstimo">Empréstimo</a></li>
-                    <li><a class="tablinks"  title="Compras">Compras</a></li>
-                    <li><a class="tablinks"  title="Recebimento">Recebimento</a></li>
-                    <li><a class="tablinks"  title="Funcionarios">Funcionarios</a></li>
+                    <li><a class="tablinks" title="Clientes">Clientes</a></li>
+                    <li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
+                    <li><a class="tablinks" title="Compras">Compras</a></li>
+                    <li><a class="tablinks" title="Recebimento">Recebimento</a></li>
+                    <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
                 </ul>
             </div>
         </div>
@@ -92,7 +101,8 @@
                 </div>
             </div>
         </div>
-        
-    </div> 
+
+    </div>
 </body>
+
 </html>

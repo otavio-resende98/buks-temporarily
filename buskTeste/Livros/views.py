@@ -16,6 +16,7 @@ def register_book(request):
         form.save()
         return redirect('core:home')
     else:
+        # form['sinopse'] = request.POST['sinopse']
         data['form'] = form
         return render(request, 'Livros/register_book.html', data)
 
@@ -62,12 +63,14 @@ def read_book(request):
 
     return render(request, 'Livros/read_book.html', data)
 
+
 @login_required
 def delete_book(request):
     data = {}
     data['Livros'] = Livro.objects.all()
 
     return render(request, 'Livros/delete_book.html', data)
+
 
 @login_required
 def delete_book_confirm(request, pk):
@@ -76,4 +79,3 @@ def delete_book_confirm(request, pk):
     livro.delete()
 
     return redirect('Livros:delete_book')
-
