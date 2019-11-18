@@ -15,7 +15,7 @@ def register_book(request):
     form = Cadastro_Livro(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('core:home')
+        return redirect('Livros:register_book')
     else:
         data['form'] = form
         return render(request, 'Livros/register_book.html', data)
@@ -116,10 +116,10 @@ def read_book_form(request, pk):
 
     data = {}
 
-    form = Consultar_Livro(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        form.save()
-        return redirect('core:home')
-    else:
-        data['form'] = form
-        return render(request, 'Livros/read_book_form.html', data)
+    livros = Livro.objects.get(pk=pk)
+    form = Consultar_Livro(request.POST or None,
+                           request.FILES or None, instance=livros)
+
+    data['Livro'] = livros
+    data['form'] = form
+    return render(request, 'Livros/read_book_form.html', data)
