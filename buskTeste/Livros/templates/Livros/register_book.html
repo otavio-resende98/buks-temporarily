@@ -170,11 +170,11 @@
 
                                         <div class="row-cadastro-form">
                                             <label for="{{ form.sinopse.id_for_label }}">Sinopse</label>
-                                            <textarea id="{{ form.sinopse.id_for_label }}"
+                                            <input class="text-area" id="{{ form.sinopse.id_for_label }}"
                                                 name="{{ form.sinopse.name }}"
                                                 value="{{ form.sinopse.value|default_if_none:'' }}"
                                                 placeholder="Resumo básico da hisória do Livro..."
-                                                style="width: 88%; height: 60px;"></textarea>
+                                                style="width: 88%; height: 60px;"></input>
                                         </div>
 
                                         <div class="row-cadastro-btn">
