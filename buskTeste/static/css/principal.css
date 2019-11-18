@@ -454,7 +454,7 @@ li a:hover {
 }
 
 
-.row-cadastro-form .switch {
+.switch {
     position: relative;
     display: inline-block;
     width: 30px;
@@ -464,13 +464,13 @@ li a:hover {
     justify-content: center;
 }
 
-.row-cadastro-form .switch input {
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.row-cadastro-form .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -482,7 +482,7 @@ li a:hover {
     transition: .4s;
 }
 
-.row-cadastro-form .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 10px;
@@ -494,16 +494,16 @@ li a:hover {
     transition: .4s;
 }
 
-.row-cadastro-form .btn-slider:checked+.slider {
+.btn-slider:checked+.slider {
     background-color: var(--chocolate);
 }
 
-.row-cadastro-form .btn-slider:focus+.slider {
+.btn-slider:focus+.slider {
     background-clip: var(--white);
     box-shadow: 0 0 1px var(--chocolate);
 }
 
-.row-cadastro-form .btn-slider:checked+.slider:before {
+.btn-slider:checked+.slider:before {
     -webkit-transform: translateX(17px);
     -ms-transform: translateX(17px);
     transform: translateX(17px);

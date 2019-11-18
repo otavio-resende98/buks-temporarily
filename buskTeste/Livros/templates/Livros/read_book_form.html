@@ -105,7 +105,13 @@
                                                     <label for="">Quantidade</label>
                                                     <input type="text" style="width: 15%;" readonly>
                                                     <label for="">Novo</label>
-                                                    <input type="text" style="width: 10%;" readonly>
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="btn-slider"
+                                                            {% ifequal form.is_new.value True  %} checked="true"
+                                                            {% endifequal %} id="{{ form.is_new.id_for_label }}"
+                                                            name="{{ form.is_new.name }}" disabled>
+                                                        <span class="slider"></span>
+                                                    </label>
                                                 </div>
                                                 <div class="row-read-content">
                                                     <label for="">Preço Compra</label>
