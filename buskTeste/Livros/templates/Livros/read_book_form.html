@@ -1,15 +1,144 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/principal.css' %}">
     <title>Consultar Livro</title>
 </head>
 
 <body>
-    Amém
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-left">
+                    <div class="nav-text-primary">
+                        <style type="text/css">
+                            a:link {
+                                text-decoration: none;
+                            }
+                        </style>
+                        <a href="/" class="text-decoration">
+                            <h2>Buks</h2>
+                            <p>A biblioteca que move o mundo...</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="my-account">
+                        <img src="../assets/my-account.svg" alt="">
+                        <p>Minha Conta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="list-content">
+                <ul>
+                    <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
+                    <li><a class="tablinks active" href="#" title="Livros">Livros</a></li>
+                    <li><a class="tablinks" title="Clientes">Clientes</a></li>
+                    <li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
+                    <li><a class="tablinks" title="Compras">Compras</a></li>
+                    <li><a class="tablinks" title="Recebimento">Recebimento</a></li>
+                    <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tabcontent" id="livro-content">
+                <div class="livro">
+                    <h1>Livros - opções</h1>
+                    <div class="livro-option">
+                        <div class="livro-option-button">
+                            <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
+                                    livro</button></a>
+                            <a href="/update/book"><button type="button" class="btn-book">Alterar livro</button></a>
+                            <a href="/read/book"><button type="button" class="btn-book activeButton">Consultar
+                                    livro</button></a>
+                            <a href="/delete/book"><button type="button" class="btn-book">Excluir livro</button></a>
+                        </div>
+                    </div>
+                    <div class="livro-pages">
+                        <div class="livroContent" id="consultaLivro">
+                            <div class="consulta-content">
+                                <div class="consulta-content-content">
+                                    <div class="read-book-form-body">
+                                        <div class="read-book-form-top">
+                                            <div class="row-read-photo">
+                                                <div class="photo-content">
+                                                    <img src="" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="row-read-info">
+                                                <div class="row-read-content">
+                                                    <label for="">ISBN</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                    <label for="">Título</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                </div>
+                                                <div class="row-read-content">
+                                                    <label for="">Subtítulo</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                    <label for="">Autor</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                </div>
+                                                <div class="row-read-content">
+                                                    <label for="">Eiditora</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                    <label for="">Edição</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                </div>
+                                                <div class="row-read-content">
+                                                    <label for="">Ano</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                    <label for="">Nº de Páginas</label>
+                                                    <input type="text" style="width: 30%;" readonly>
+                                                </div>
+                                                <div class="row-read-content">
+                                                    <label for="">Gênero</label>
+                                                    <input type="text" style="width: 20%;" readonly>
+                                                    <label for="">Quantidade</label>
+                                                    <input type="text" style="width: 15%;" readonly>
+                                                    <label for="">Novo</label>
+                                                    <input type="text" style="width: 10%;" readonly>
+                                                </div>
+                                                <div class="row-read-content">
+                                                    <label for="">Preço Compra</label>
+                                                    <input type="text" style="width: 25%;" readonly>
+                                                    <label for="">Preço Venda</label>
+                                                    <input type="text" style="width: 25%;" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="read-book-form-bottom">
+                                            <div class="row-read-sinopse">
+                                                <label class="label-sinopse"
+                                                    for="{{ form.sinopse.id_for_label }}">Sinopse</label>
+                                                <input class="sinopse-text" id="{{ form.sinopse.id_for_label }}"
+                                                    name="{{ form.sinopse.name }}"
+                                                    value="{{ form.sinopse.value|default_if_none:'' }}"
+                                                    placeholder="Resumo básico da hisória do Livro..."
+                                                    style="width: 88%; height: 60px; text-align: center;"
+                                                    readonly></input>
+                                            </div>
+                                        </div>
+                                        <div class="read-book-form-btn">
+                                            <a href="/read/book"><button type="button">Voltar</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
