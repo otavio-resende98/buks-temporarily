@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
-    <title>Cadastrar Livro</title>
+    <title>Alterar Livro</title>
 </head>
 
 <body>
@@ -50,9 +50,9 @@
                         <div class="livro-option-button">
                             <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
                                     livro</button></a>
-                            <a href="/update/book/"><button type="button" class="btn-book activeButton">Alterar
+                            <a href="/update/book"><button type="button" class="btn-book activeButton">Alterar
                                     livro</button></a>
-                            <button type="button" class="btn-book">Consultar livro</button>
+                            <a href="/read/book"><button type="button" class="btn-book">Consultar livro</button></a>
                             <button type="button" class="btn-book">Excluir livro</button>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                                         </div>
 
                                         <div class="row-cadastro-btn">
-                                            <button type="reset">Limpar</button>
+                                            <a href="/update/book"><button type="button">Voltar</button></a>
                                             <button type="submit">Atualizar</button>
                                         </div>
                                     </form>

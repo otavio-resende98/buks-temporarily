@@ -529,7 +529,8 @@ li a:hover {
     border: 1px var(--chocolate-dark) solid;
 }
 
-.cadastro-form form .row-cadastro-btn button[type="reset"] {
+.cadastro-form form .row-cadastro-btn button[type="button"],
+button[type="reset"] {
     width: 120px;
     height: 35px;
     justify-self: center;

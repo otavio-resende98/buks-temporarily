@@ -50,8 +50,9 @@
                         <div class="livro-option-button">
                             <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
                                     livro</button></a>
-                            <button type="button" class="btn-book activeButton">Alterar livro</button>
-                            <button type="button" class="btn-book">Consultar livro</button>
+                            <a href="/update/book"><button type="button" class="btn-book activeButton">Alterar
+                                    livro</button></a>
+                            <a href="/read/book"><button type="button" class="btn-book">Consultar livro</button></a>
                             <button type="button" class="btn-book">Excluir livro</button>
                         </div>
                     </div>
@@ -59,8 +60,7 @@
                         <div class="livroContent" id="consultaLivro">
                             <div class="consulta-content">
                                 <div class="consulta-content-content">
-                                    <label for="">Qual Livro você deseja
-                                        alterar?</label>
+                                    <label for="">Digite o título do Livro que deseja alterar</label>
                                     <div class="row-consulta">
                                         <form method="POST">
                                             {% csrf_token %}
