@@ -3,6 +3,7 @@ from .forms import Cadastro_Livro, Alterar_Livro, Consultar_Livro
 from django.contrib.auth.decorators import login_required
 import decimal
 from .models import Livro
+import time
 
 # Create your views here.
 
@@ -15,8 +16,11 @@ def register_book(request):
     form = Cadastro_Livro(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('Livros:register_book')
+        data['valid'] = 'true'
+        time.sleep(30)
+        return render(request, 'Livros/register_book.html', data)
     else:
+        data['valid'] = 'false'
         data['form'] = form
         return render(request, 'Livros/register_book.html', data)
 
@@ -32,6 +36,7 @@ def update_book_form(request, pk):
 
     if form.is_valid():
         form.save()
+        time.sleep(30)
         return redirect('Livros:update_book')
 
     data['form'] = form

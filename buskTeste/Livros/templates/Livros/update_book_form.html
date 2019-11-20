@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
     <title>Alterar Livro</title>
 </head>
 
@@ -67,7 +68,7 @@
                         <div class="livroContent" id="cadastroLivro">
                             <div class="cadastro-content">
                                 <div class="cadastro-form">
-                                    <form method="POST" enctype="multipart/form-data">
+                                    <form method="POST" enctype="multipart/form-data" name="formUpdateBook">
                                         {% csrf_token %}
                                         <div class="row-cadastro-form">
                                             <label for="{{ form.isbn.id_for_label }}">ISBN</label>
@@ -184,7 +185,7 @@
 
                                         <div class="row-cadastro-btn">
                                             <a href="/update/book"><button type="button">Voltar</button></a>
-                                            <button type="submit">Atualizar</button>
+                                            <button type="button" id="book-update-confirm">Atualizar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -195,6 +196,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let $btnBookAltConfirm = document.getElementById('book-update-confirm');
+        $btnBookAltConfirm.addEventListener('click', async function () {
+            Swal.fire({
+                'title': 'Confirmação!',
+                'icon': 'warning',
+                'text': 'Deseja confirmar essa operação?',
+                'cancelButtonText': 'Não',
+                'confirmButtonText': 'Sim',
+                'showCancelButton': true,
+                'showCloseButton': true,
+            }).then((result) => {
+                if (result.value) {
+                    sendUpdateBook();
+                    showSuccess();
+                }
+            })
+        })
+    </script>
+    <script src="{% static 'js/alertas.js' %}"></script>
+    <script src="{% static 'js/sweetalert2.min.js' %}"></script>
+
 </body>
 
 </html>

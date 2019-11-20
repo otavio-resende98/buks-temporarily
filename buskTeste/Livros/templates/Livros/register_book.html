@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
     <title>Cadastrar Livro</title>
 </head>
 
@@ -67,14 +68,15 @@
                         <div class="livroContent" id="cadastroLivro">
                             <div class="cadastro-content">
                                 <div class="cadastro-form">
-                                    <form method="POST" enctype="multipart/form-data">
+                                    <form method="POST" enctype="multipart/form-data" name="formResgisterBook">
                                         {% csrf_token %}
                                         <div class="row-cadastro-form">
+                                            <input type="text" id="valid" value="{{ valid.value }}">
                                             <label for="{{ form.isbn.id_for_label }}">ISBN</label>
                                             <input type="text" id="{{ form.isbn.id_for_label }}"
                                                 name="{{ form.isbn.name }}"
                                                 value="{{ form.isbn.value|default_if_none:'' }}"
-                                                placeholder="Código ISBN" style="width: 40%;">
+                                                placeholder="Código ISBN" style="width: 40%;" id="teste1">
                                             <!-- {{ form.isbn.errors }} -->
 
                                             <label for="{{ form.capa.id_for_label }}">Capa</label>
@@ -127,8 +129,7 @@
                                         <div class="row-cadastro-form">
                                             <label for="{{ form.paginas.id_for_label }}">Nº de páginas</label>
                                             <input type="text" id="{{ form.paginas.id_for_label }}"
-                                                name="{{ form.paginas.name }}"
-                                                value="{{ form.paginas.value|default_if_none:'' }}"
+                                                name="{{ form.paginas.name }}" value="{{ valid.value }}"
                                                 placeholder="Páginas" style="width: 20%;">
 
                                             <label for="{{ form.genero.id_for_label }}">Gênero</label>
@@ -179,7 +180,7 @@
 
                                         <div class="row-cadastro-btn">
                                             <button type="reset">Limpar</button>
-                                            <button type="submit">Cadastrar</button>
+                                            <button type="button" id="book-register-confirm">Cadastrar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -190,6 +191,32 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let $btnBookCadConfirm = document.getElementById('book-register-confirm');
+        let $valid = document.getElementById('valid').value;
+        $btnBookCadConfirm.addEventListener('click', async function () {
+            Swal.fire({
+                'title': 'Confirmação!',
+                'icon': 'warning',
+                'text': 'Deseja confirmar essa operação?',
+                'cancelButtonText': 'Não',
+                'confirmButtonText': 'Sim',
+                'showCancelButton': true,
+                'showCloseButton': true,
+            }).then((result) => {
+                if (result.value) {
+                    sendRegisterBook();
+                    console.log($valid);
+                    if ($valid == "true")
+                        showSuccess();
+                }
+            })
+        })
+    </script>
+    <script src="{% static 'js/alertas.js' %}"></script>
+    <script src="{% static 'js/sweetalert2.min.js' %}"></script>
+
 </body>
 
 </html>
