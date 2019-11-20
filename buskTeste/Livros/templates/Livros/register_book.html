@@ -71,7 +71,8 @@
                                     <form method="POST" enctype="multipart/form-data" name="formResgisterBook">
                                         {% csrf_token %}
                                         <div class="row-cadastro-form">
-                                            <input type="text" id="valid" value="{{ valid.value }}">
+                                            <input type="text" id="valid"
+                                                value="{{ request.session.validRegisterBook }}">
                                             <label for="{{ form.isbn.id_for_label }}">ISBN</label>
                                             <input type="text" id="{{ form.isbn.id_for_label }}"
                                                 name="{{ form.isbn.name }}"
@@ -129,7 +130,8 @@
                                         <div class="row-cadastro-form">
                                             <label for="{{ form.paginas.id_for_label }}">Nº de páginas</label>
                                             <input type="text" id="{{ form.paginas.id_for_label }}"
-                                                name="{{ form.paginas.name }}" value="{{ valid.value }}"
+                                                name="{{ form.paginas.name }}"
+                                                value="{{ form.paginas.value|default_if_none:'' }}"
                                                 placeholder="Páginas" style="width: 20%;">
 
                                             <label for="{{ form.genero.id_for_label }}">Gênero</label>
@@ -142,7 +144,9 @@
 
                                             <label class="switch">
                                                 <input type="checkbox" class="btn-slider"
-                                                    id="{{ form.is_new.id_for_label }}" name="{{ form.is_new.name }}">
+                                                    {% ifequal form.is_new.value True  %} checked="true"
+                                                    {% endifequal %} id="{{ form.is_new.id_for_label }}"
+                                                    name="{{ form.is_new.name }}">
                                                 <span class="slider"></span>
                                             </label>
                                             <!-- {{ form.is_new.errors }} -->
@@ -194,7 +198,7 @@
 
     <script>
         let $btnBookCadConfirm = document.getElementById('book-register-confirm');
-        let $valid = document.getElementById('valid').value;
+
         $btnBookCadConfirm.addEventListener('click', async function () {
             Swal.fire({
                 'title': 'Confirmação!',
@@ -207,13 +211,23 @@
             }).then((result) => {
                 if (result.value) {
                     sendRegisterBook();
-                    console.log($valid);
-                    if ($valid == "true")
-                        showSuccess();
                 }
             })
+
+
         })
     </script>
+
+    <script>
+        window.onload = function () {
+            let $valid = document.getElementById('valid').value;
+            console.log($valid);
+            if ($valid == "sim") {
+                showSuccessRegister();
+            }
+        }
+    </script>
+
     <script src="{% static 'js/alertas.js' %}"></script>
     <script src="{% static 'js/sweetalert2.min.js' %}"></script>
 

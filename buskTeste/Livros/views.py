@@ -15,12 +15,11 @@ def register_book(request):
 
     form = Cadastro_Livro(request.POST or None, request.FILES or None)
     if form.is_valid():
+        request.session['validRegisterBook'] = "sim"
         form.save()
-        data['valid'] = 'true'
-        time.sleep(30)
         return render(request, 'Livros/register_book.html', data)
     else:
-        data['valid'] = 'false'
+        request.session['validRegisterBook'] = "nao"
         data['form'] = form
         return render(request, 'Livros/register_book.html', data)
 
@@ -35,10 +34,12 @@ def update_book_form(request, pk):
                          request.FILES or None, instance=livros)
 
     if form.is_valid():
+        request.session['validUpdateBook'] = 'sim'
+        request.session['validUpdateBookCont'] = 1
         form.save()
-        time.sleep(30)
         return redirect('Livros:update_book')
 
+    request.session['validUpdateBook'] = "nao"
     data['form'] = form
 
     return render(request, 'Livros/update_book_form.html', data)
@@ -48,6 +49,12 @@ def update_book_form(request, pk):
 def update_book(request):
 
     data = {}
+
+    try:
+        if request.session['validUpdateBookCont'] == 0:
+            request.session['validUpdateBook'] = "nao"
+    except:
+        None
 
     if request.method == "POST":
         name_book = request.POST['search_book']
@@ -61,6 +68,11 @@ def update_book(request):
                 return render(request, 'Livros/update_book.html', data)
 
     data['Livros'] = Livro.objects.all()
+
+    try:
+        request.session['validUpdateBookCont'] = 0
+    except:
+        None
 
     return render(request, 'Livros/update_book.html', data)
 

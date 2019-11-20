@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
     <title>Alterar Livro</title>
 </head>
 
@@ -71,6 +72,7 @@
                                     <div class="row-consulta">
                                         <form method="POST">
                                             {% csrf_token %}
+                                            <input type="text" id="valid" value="{{ request.session.validUpdateBook }}">
                                             <input name="search_book" type="text">
                                             <button type="submit">&#128269</button>
                                         </form>
@@ -105,6 +107,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function () {
+            let $valid = document.getElementById('valid').value;
+            console.log($valid);
+            if ($valid == "sim") {
+                showSuccessUpdate();
+            }
+        }
+    </script>
+
+    <script src="{% static 'js/alertas.js' %}"></script>
+    <script src="{% static 'js/sweetalert2.min.js' %}"></script>
+
 </body>
 
 </html>

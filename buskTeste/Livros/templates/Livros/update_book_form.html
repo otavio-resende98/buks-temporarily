@@ -198,8 +198,9 @@
     </div>
 
     <script>
-        let $btnBookAltConfirm = document.getElementById('book-update-confirm');
-        $btnBookAltConfirm.addEventListener('click', async function () {
+        let $btnBookCadConfirm = document.getElementById('book-update-confirm');
+
+        $btnBookCadConfirm.addEventListener('click', async function () {
             Swal.fire({
                 'title': 'Confirmação!',
                 'icon': 'warning',
@@ -211,11 +212,13 @@
             }).then((result) => {
                 if (result.value) {
                     sendUpdateBook();
-                    showSuccess();
                 }
             })
+
+
         })
     </script>
+
     <script src="{% static 'js/alertas.js' %}"></script>
     <script src="{% static 'js/sweetalert2.min.js' %}"></script>
 
