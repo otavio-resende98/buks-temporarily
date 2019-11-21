@@ -141,24 +141,20 @@
                                                     </label>
                                                 </div>
                                                 <div class="row-read-content">
-                                                    <label>Preço de compra</label>
-                                                    <a style="width: 25%;">{{ form.preco_compra }}</a>
-                                                    <!-- <label for="{{ form.preco_compra.id_for_label }}">Preço
-                                                        Compra</label> -->
-                                                    <!-- <input type="text" style="width: 25%;"
+                                                    <label for="{{ form.preco_compra.id_for_label }}">Preço
+                                                        Compra</label>
+                                                    <input type="text" style="width: 25%;"
                                                         id="{{ form.preco_compra.id_for_label }}"
                                                         name="{{ form.preco_compra.name }}"
                                                         value="{{ form.preco_compra.value|default_if_none:'' }}"
-                                                        readonly> -->
+                                                        readonly>
 
-                                                    <label>Preço de venda</label>
-                                                    <a style="width: 25%;">{{ form.preco_venda }}</a>
-                                                    <!-- <label for="{{ form.preco_venda.id_for_label }}">Preço Venda</label>
+                                                    <label for="{{ form.preco_venda.id_for_label }}">Preço Venda</label>
                                                     <input type="text" style="width: 25%;"
                                                         id="{{ form.preco_venda.id_for_label }}"
                                                         name="{{ form.preco_venda.name }}"
                                                         value="{{ form.preco_venda.value|default_if_none:'' }}"
-                                                        readonly> -->
+                                                        readonly>
                                                 </div>
                                             </div>
                                         </div>

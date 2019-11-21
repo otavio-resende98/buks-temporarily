@@ -152,21 +152,16 @@
                                             </label>
                                         </div>
                                         <div class="row-cadastro-form">
-                                            <label>Preço de compra</label>
-                                            <a style="width: 18%;">{{ form.preco_compra }}</a>
-                                            <!-- <label for="{{ form.preco_compra.id_for_label }}">Preço de compra</label>
+                                            <label for="{{ form.preco_compra.id_for_label }}">Preço de compra</label>
                                             <input type="text" id="{{ form.preco_compra.id_for_label }}"
                                                 name="{{ form.preco_compra.name }}"
-                                                value="{{ form.preco_compra.value|default_if_none:'' }}"
-                                                placeholder="R$ 0,00" style="width: 18%"> -->
+                                                value="{{ form.preco_compra.value }}" placeholder="R$ 0,00"
+                                                style="width: 18%">
 
-                                            <label>Preço de venda</label>
-                                            <a style="width: 18%;">{{ form.preco_venda }}</a>
-                                            <!-- <label for="{{ form.preco_venda.id_for_label }}">Preço de venda</label>
+                                            <label for="{{ form.preco_venda.id_for_label }}">Preço de venda</label>
                                             <input type="text" id="{{ form.preco_venda.id_for_label }}"
-                                                name="{{ form.preco_venda.name }}"
-                                                value="{{ form.preco_venda.value|default_if_none:'' }}"
-                                                placeholder="R$ 0,00" style="width: 18%"> -->
+                                                name="{{ form.preco_venda.name }}" value="{{ form.preco_venda.value }}"
+                                                placeholder="R$ 0,00" style="width: 18%">
 
                                             <label for="{{ form.quantidade.id_for_label }}">Quantidade</label>
                                             <input type="text" id="{{ form.quantidade.id_for_label }}"
@@ -186,6 +181,7 @@
                                         <div class="row-cadastro-btn">
                                             <a href="/update/book"><button type="button">Voltar</button></a>
                                             <button type="button" id="book-update-confirm">Atualizar</button>
+                                            {{ form.errors }}
                                         </div>
                                     </form>
                                 </div>
