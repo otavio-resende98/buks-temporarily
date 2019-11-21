@@ -46,6 +46,27 @@ def update_book_form(request, pk):
 
 
 @login_required
+def read_book(request):
+
+    data = {}
+
+    if request.method == "POST":
+        name_book = request.POST['search_book']
+        if name_book != "":
+            livros = Livro.objects.filter(titulo=name_book)
+            quant_livros = Livro.objects.filter(titulo=name_book).count()
+            if quant_livros == 0:
+                return render(request, 'Livros/update_book.html', data)
+            else:
+                data['Livros'] = livros
+                return render(request, 'Livros/update_book.html', data)
+
+    data['Livros'] = Livro.objects.all()
+
+    return render(request, 'Livros/read_book.html', data)
+
+
+@login_required
 def update_book(request):
 
     data = {}
@@ -78,54 +99,45 @@ def update_book(request):
 
 
 @login_required
-def read_book(request):
-
-    data = {}
-
-    if request.method == "POST":
-        name_book = request.POST['search_book']
-        if name_book != "":
-            livros = Livro.objects.filter(titulo=name_book)
-            quant_livros = Livro.objects.filter(titulo=name_book).count()
-            if quant_livros == 0:
-                return render(request, 'Livros/update_book.html', data)
-            else:
-                data['Livros'] = livros
-                return render(request, 'Livros/update_book.html', data)
-
-    data['Livros'] = Livro.objects.all()
-
-    return render(request, 'Livros/read_book.html', data)
-
-
-@login_required
 def delete_book(request):
 
     data = {}
 
+    try:
+        if request.session['validDeleteBook'] == "sim":
+            request.session['validDeleteBook'] = "nao"
+    except:
+        None
     if request.method == "POST":
-        name_book = request.POST['search_book']
-        if name_book != "":
-            livros = Livro.objects.filter(titulo=name_book)
-            quant_livros = Livro.objects.filter(titulo=name_book).count()
-            if quant_livros == 0:
-                return render(request, 'Livros/update_book.html', data)
-            else:
-                data['Livros'] = livros
-                return render(request, 'Livros/update_book.html', data)
+        try:
+            request.session['validDeleteBook'] = 'sim'
+            pk = request.POST['isbn']
+            livro = Livro.objects.get(pk=pk)
+            livro.delete()
+
+            data['Livros'] = Livro.objects.all()
+
+            return render(request, 'Livros/delete_book.html', data)
+        except:
+            None
+        try:
+            name_book = request.POST['search_book']
+            if name_book != "":
+                livros = Livro.objects.filter(titulo=name_book)
+                quant_livros = Livro.objects.filter(titulo=name_book).count()
+                if quant_livros == 0:
+                    return render(request, 'Livros/update_book.html', data)
+                else:
+                    data['Livros'] = livros
+                    return render(request, 'Livros/update_book.html', data)
+        except:
+            None
+
+    request.session['validDeleteBook'] = "nao"
 
     data['Livros'] = Livro.objects.all()
 
     return render(request, 'Livros/delete_book.html', data)
-
-
-@login_required
-def delete_book_confirm(request, pk):
-
-    livro = Livro.objects.get(pk=pk)
-    livro.delete()
-
-    return redirect('Livros:delete_book')
 
 
 @login_required

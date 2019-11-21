@@ -6,9 +6,22 @@ function sendUpdateBook() {
   document.formUpdateBook.submit();
 }
 
+function sendDeleteBook() {
+  document.formDeleteBook.submit();
+}
+
 function showSuccessRegister() {
   Swal.fire({
-    'title': 'Cadastrado com Sucesso!',
+    'title': 'Livro Cadastrado com Sucesso!',
+    'icon': 'success',
+    'showCloseButton': false,
+    'timer': 3000
+  })
+}
+
+function showSuccessDelete() {
+  Swal.fire({
+    'title': 'Livro Excluído com Sucesso!',
     'icon': 'success',
     'showCloseButton': false,
     'timer': 3000
@@ -17,7 +30,7 @@ function showSuccessRegister() {
 
 function showSuccessUpdate() {
   Swal.fire({
-    'title': 'Atualizado com Sucesso!',
+    'title': 'Livro Atualizado com Sucesso!',
     'icon': 'success',
     'showCloseButton': false,
     'timer': 3000

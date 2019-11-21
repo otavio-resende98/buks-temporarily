@@ -199,6 +199,7 @@
 
     <script>
         let $btnBookCadConfirm = document.getElementById('book-update-confirm');
+        console.log($btnBookCadConfirm)
 
         $btnBookCadConfirm.addEventListener('click', async function () {
             Swal.fire({
@@ -214,8 +215,6 @@
                     sendUpdateBook();
                 }
             })
-
-
         })
     </script>
 
