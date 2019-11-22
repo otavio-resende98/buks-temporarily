@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-
+# Classe que define uma tabela no banco de dados representando um Livro,
+# que pode ser cadastradoo, alterado, consultado e excluído do sistema.
 class Livro(models.Model):
 
     isbn = models.CharField(
@@ -17,7 +18,7 @@ class Livro(models.Model):
     paginas = models.CharField(max_length=255, verbose_name="Nº de Páginas")
     genero = models.CharField(max_length=255, verbose_name="Gênero")
     quantidade = models.IntegerField(default=0, verbose_name="Quantidade")
-    is_new = models.BooleanField(verbose_name="Novo", default=False)
+    novo = models.BooleanField(verbose_name="Novo", default=False)
     sinopse = models.CharField(max_length=255, verbose_name="Sinopse")
     preco_compra = models.DecimalField(
         max_digits=8, decimal_places=2, verbose_name="Preço de compra")

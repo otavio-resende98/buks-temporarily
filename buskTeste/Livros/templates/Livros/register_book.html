@@ -144,12 +144,11 @@
 
                                             <label class="switch">
                                                 <input type="checkbox" class="btn-slider"
-                                                    {% ifequal form.is_new.value True  %} checked="true"
-                                                    {% endifequal %} id="{{ form.is_new.id_for_label }}"
-                                                    name="{{ form.is_new.name }}">
+                                                    {% ifequal form.novo.value True  %} checked="true" {% endifequal %}
+                                                    id="{{ form.novo.id_for_label }}" name="{{ form.novo.name }}">
                                                 <span class="slider"></span>
                                             </label>
-                                            <!-- {{ form.is_new.errors }} -->
+                                            <!-- {{ form.errors }} -->
                                         </div>
 
                                         <div class="row-cadastro-form">

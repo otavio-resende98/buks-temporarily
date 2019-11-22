@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from .models import Livro
 from django import forms
 
-
+# Formulário utilizado para cadastrar um livro no sistema.
 class Cadastro_Livro(ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -19,7 +19,7 @@ class Cadastro_Livro(ModelForm):
             'capa': forms.FileInput()
         }
 
-
+# Formulário utilizado para atualizar um livro já cadastrado no sistema.
 class Alterar_Livro(ModelForm):
 
     def __init__(self, *args, **kwargs):
@@ -36,7 +36,7 @@ class Alterar_Livro(ModelForm):
             'capa': forms.FileInput()
         }
 
-
+# Formulário para consultar os dados de um livro já cadastrado no sistema.
 class Consultar_Livro(ModelForm):
 
     def __init__(self, *args, **kwargs):

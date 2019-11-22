@@ -131,12 +131,12 @@
                                                         id="{{ form.quantidade.id_for_label }}"
                                                         name="{{ form.quantidade.name }}"
                                                         value="{{ form.quantidade.value|default_if_none:0 }}" readonly>
-                                                    <label for="{{ form.is_new.id_for_label }}">Novo</label>
+                                                    <label for="{{ form.novo.id_for_label }}">Novo</label>
                                                     <label class="switch">
                                                         <input type="checkbox" class="btn-slider"
-                                                            {% ifequal form.is_new.value True  %} checked="true"
-                                                            {% endifequal %} id="{{ form.is_new.id_for_label }}"
-                                                            name="{{ form.is_new.name }}" disabled>
+                                                            {% ifequal form.novo.value True  %} checked="true"
+                                                            {% endifequal %} id="{{ form.novo.id_for_label }}"
+                                                            name="{{ form.novo.name }}" disabled>
                                                         <span class="slider"></span>
                                                     </label>
                                                 </div>

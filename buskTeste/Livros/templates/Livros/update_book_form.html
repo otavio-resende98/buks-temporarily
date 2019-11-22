@@ -141,13 +141,12 @@
                                                 value="{{ form.genero.value|default_if_none:'' }}"
                                                 placeholder="Gênero do Livro" style="width: 20%;">
 
-                                            <label for="{{ form.is_new.id_for_label }}">Novo ou usado (binário)</label>
+                                            <label for="{{ form.novo.id_for_label }}">Novo ou usado (binário)</label>
 
                                             <label class="switch">
                                                 <input type="checkbox" class="btn-slider"
-                                                    {% ifequal form.is_new.value True  %} checked="true"
-                                                    {% endifequal %} id="{{ form.is_new.id_for_label }}"
-                                                    name="{{ form.is_new.name }}">
+                                                    {% ifequal form.novo.value True  %} checked="true" {% endifequal %}
+                                                    id="{{ form.novo.id_for_label }}" name="{{ form.novo.name }}">
                                                 <span class="slider"></span>
                                             </label>
                                         </div>

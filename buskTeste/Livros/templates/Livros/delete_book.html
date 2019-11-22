@@ -4,150 +4,152 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{% static 'css/principal.css' %}">
-  <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
-  <title>Excluir Livro</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="{% static 'css/principal.css' %}">
+	<link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
+	<title>Excluir Livro</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="nav">
-        <div class="nav-left">
-          <div class="nav-text-primary">
-            <style type="text/css">
-              a:link {
-                text-decoration: none;
-              }
-            </style>
-            <a href="/" class="text-decoration">
-              <h2>Buks</h2>
-              <p>A biblioteca que move o mundo...</p>
-            </a>
-          </div>
-        </div>
-        <div class="nav-right">
-          <div class="my-account">
-            <img src="../assets/my-account.svg" alt="">
-            <p>Minha Conta</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="list">
-      <div class="list-content">
-        <ul>
-          <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
-          <li><a class="tablinks active" href="#" title="Livros">Livros</a></li>
-          <li><a class="tablinks" title="Clientes">Clientes</a></li>
-          <li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
-          <li><a class="tablinks" title="Compras">Compras</a></li>
-          <li><a class="tablinks" title="Recebimento">Recebimento</a></li>
-          <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="content">
-      <div class="tabcontent" id="livro-content">
-        <div class="livro">
-          <h1>Livros - opções</h1>
-          <div class="livro-option">
-            <div class="livro-option-button">
-              <a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
-                  livro</button></a>
-              <a href="/update/book"><button type="button" class="btn-book">Alterar livro</button></a>
-              <a href="/read/book"><button type="button" class="btn-book">Consultar
-                  livro</button></a>
-              <a href="/delete/book"><button type="button" class="btn-book activeButton">Excluir livro</button></a>
-            </div>
-          </div>
-          <div class="livro-pages">
-            <div class="livroContent" id="consultaLivro">
-              <div class="consulta-content">
-                <div class="consulta-content-content">
-                  <label for="">Digite o título do livro que deseja excluir</label>
-                  <div class="row-consulta">
-                    <form method="POST">
-                      {% csrf_token %}
-                      <input type="text" id="valid" value="{{ request.session.validDeleteBook }}">
-                      <input name="search_book" type="text">
-                      <button type="submit">&#128269</button>
-                    </form>
-                  </div>
-                  <div class="search-result-procura">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>ISBN</th>
-                          <th>Titulo</th>
-                          <th>Informações</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {%  for Livro in Livros %}
-                        <tr>
-                          <td>{{ "ISBN: "}} {{ Livro.isbn }}</td>
-                          <td>{{ "Título: "}} {{ Livro.titulo }}</td>
-                          <td><button type="button" id="{{ Livro.isbn }}" onClick="enviarPOST(this.id)"
-                              style=" color: black;">&times;</button></td>
-                        </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="container">
+		<div class="header">
+			<div class="nav">
+				<div class="nav-left">
+					<div class="nav-text-primary">
+						<style type="text/css">
+							a:link {
+								text-decoration: none;
+							}
+						</style>
+						<a href="/" class="text-decoration">
+							<h2>Buks</h2>
+							<p>A biblioteca que move o mundo...</p>
+						</a>
+					</div>
+				</div>
+				<div class="nav-right">
+					<div class="my-account">
+						<img src="../assets/my-account.svg" alt="">
+						<p>Minha Conta</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<div class="list-content">
+				<ul>
+					<li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
+					<li><a class="tablinks active" href="#" title="Livros">Livros</a></li>
+					<li><a class="tablinks" title="Clientes">Clientes</a></li>
+					<li><a class="tablinks" title="Empréstimo">Empréstimo</a></li>
+					<li><a class="tablinks" title="Compras">Compras</a></li>
+					<li><a class="tablinks" title="Recebimento">Recebimento</a></li>
+					<li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="tabcontent" id="livro-content">
+				<div class="livro">
+					<h1>Livros - opções</h1>
+					<div class="livro-option">
+						<div class="livro-option-button">
+							<a href="/register/book"><button type="button" class="btn-book" id="defaultBook">Cadastrar
+									livro</button></a>
+							<a href="/update/book"><button type="button" class="btn-book">Alterar livro</button></a>
+							<a href="/read/book"><button type="button" class="btn-book">Consultar
+									livro</button></a>
+							<a href="/delete/book"><button type="button" class="btn-book activeButton">Excluir
+									livro</button></a>
+						</div>
+					</div>
+					<div class="livro-pages">
+						<div class="livroContent" id="consultaLivro">
+							<div class="consulta-content">
+								<div class="consulta-content-content">
+									<label for="">Digite o título do livro que deseja excluir</label>
+									<div class="row-consulta">
+										<form method="POST">
+											{% csrf_token %}
+											<input type="text" id="valid" value="{{ request.session.validDeleteBook }}">
+											<input name="search_book" type="text">
+											<button type="submit">&#128269</button>
+										</form>
+									</div>
+									<div class="search-result-procura">
+										<table>
+											<thead>
+												<tr>
+													<th>ISBN</th>
+													<th>Titulo</th>
+													<th>Informações</th>
+												</tr>
+											</thead>
+											<tbody>
+												{%  for Livro in Livros %}
+												<tr>
+													<td>{{ "ISBN: "}} {{ Livro.isbn }}</td>
+													<td>{{ "Título: "}} {{ Livro.titulo }}</td>
+													<td><button type="button" id="{{ Livro.isbn }}"
+															onClick="enviarPOST(this.id)"
+															style=" color: black;">&times;</button></td>
+												</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <form method="POST" name="formDeleteBook">
-      {% csrf_token %}
-      <input name="isbn" type="text" id="delete-book" readonly>
-    </form>
+		<form method="POST" name="formDeleteBook">
+			{% csrf_token %}
+			<input name="isbn" type="text" id="delete-book" readonly>
+		</form>
 
-  </div>
+	</div>
 
-  <script>
-    function enviarPOST(id) {
-      document.getElementById('delete-book').value = id;
-      let $btnBookDeleteConfirm = document.getElementById(id);
-      console.log($btnBookDeleteConfirm);
-      Swal.fire({
-        'title': 'Confirmação!',
-        'icon': 'warning',
-        'text': 'Deseja confirmar essa operação?',
-        'cancelButtonText': 'Não',
-        'confirmButtonText': 'Sim',
-        'showCancelButton': true,
-        'showCloseButton': true,
-      }).then((result) => {
-        if (result.value) {
-          sendDeleteBook();
-        }
-      })
-    }
-  </script>
+	<script>
+		function enviarPOST(id) {
+			document.getElementById('delete-book').value = id;
+			let $btnBookDeleteConfirm = document.getElementById(id);
+			console.log($btnBookDeleteConfirm);
+			Swal.fire({
+				'title': 'Confirmação!',
+				'icon': 'warning',
+				'text': 'Deseja confirmar essa operação?',
+				'cancelButtonText': 'Não',
+				'confirmButtonText': 'Sim',
+				'showCancelButton': true,
+				'showCloseButton': true,
+			}).then((result) => {
+				if (result.value) {
+					sendDeleteBook();
+				}
+			})
+		}
+	</script>
 
-  <script>
-    window.onload = function () {
-      let $valid = document.getElementById('valid').value;
-      console.log($valid);
-      if ($valid == "sim") {
-        showSuccessDelete();
-      }
-    }
-  </script>
+	<script>
+		window.onload = function () {
+			let $valid = document.getElementById('valid').value;
+			console.log($valid);
+			if ($valid == "sim") {
+				showSuccessDelete();
+			}
+		}
+	</script>
 
-  <script src="{% static 'js/alertas.js' %}"></script>
-  <script src="{% static 'js/sweetalert2.min.js' %}"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="{% static 'js/alertas.js' %}"></script>
+	<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 </body>
 

@@ -7,7 +7,7 @@ import time
 
 # Create your views here.
 
-
+# Função que realiza o cadastro de um livro no sistema.
 @login_required
 def register_book(request):
 
@@ -23,7 +23,8 @@ def register_book(request):
         data['form'] = form
         return render(request, 'Livros/register_book.html', data)
 
-
+# Função que realiza a atualização/alteração dos dados de um livro ja
+# cadastrado no sistema.
 @login_required
 def update_book_form(request, pk):
 
@@ -44,7 +45,8 @@ def update_book_form(request, pk):
 
     return render(request, 'Livros/update_book_form.html', data)
 
-
+# Função que exibe em uma tabela todos os livros cadastrados no sistema,
+# e possibilita a busca e seleção de um livro a ser consultado.
 @login_required
 def read_book(request):
 
@@ -65,7 +67,8 @@ def read_book(request):
 
     return render(request, 'Livros/read_book.html', data)
 
-
+# Função que exibe em uma tabela todos os livros cadastrados no sistema,
+# e possibilita a busca e seleção de um livro a ser atualizado/alterado.
 @login_required
 def update_book(request):
 
@@ -97,7 +100,8 @@ def update_book(request):
 
     return render(request, 'Livros/update_book.html', data)
 
-
+# Função que exibe em uma tabela todos os livros cadastrados no sistema,
+# e possibilita a busca e seleção de um livro a ser excluído.
 @login_required
 def delete_book(request):
 
@@ -139,7 +143,8 @@ def delete_book(request):
 
     return render(request, 'Livros/delete_book.html', data)
 
-
+# Função que exibe uma página com as informações de um livro
+# consultado pelo usuário do sistema.
 @login_required
 def read_book_form(request, pk):
 
