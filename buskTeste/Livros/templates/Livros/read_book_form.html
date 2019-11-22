@@ -7,14 +7,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Folhas Principais-->
+
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
     <title>Consultar Livro</title>
 </head>
 
 <body>
+
+    <!--Container Principal-->
+
     <div class="container">
+
+        <!--Header Principal-->
+
         <div class="header">
+
+            <!--Barra de Navegação-->
+
             <div class="nav">
+
+                <!--Navegação Esquerda-->
+
                 <div class="nav-left">
                     <div class="nav-text-primary">
                         <style type="text/css">
@@ -28,6 +43,9 @@
                         </a>
                     </div>
                 </div>
+
+                <!--Navegação Direita-->
+
                 <div class="nav-right">
                     <div class="my-account">
                         <img src="../assets/my-account.svg" alt="">
@@ -35,8 +53,19 @@
                     </div>
                 </div>
             </div>
+
+            <!--Fim da Barra de Navegação-->
+
         </div>
+
+        <!--Fim do Container Principal-->
+
+        <!--Aba de Opções-->
+
         <div class="list">
+
+            <!--Conteudo das listas-->
+
             <div class="list-content">
                 <ul>
                     <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
@@ -48,9 +77,23 @@
                     <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
                 </ul>
             </div>
+
+            <!--Fim do Conteudo das listas-->
+
         </div>
+
+        <!--Fim das Aba de Opções-->
+
+        <!--Inicio do container Principal-->
+
         <div class="content">
+
+            <!--Opação dos livros-->
+
             <div class="tabcontent" id="livro-content">
+
+                <!--Livros-->
+
                 <div class="livro">
                     <h1>Livros - opções</h1>
                     <div class="livro-option">
@@ -131,12 +174,12 @@
                                                         id="{{ form.quantidade.id_for_label }}"
                                                         name="{{ form.quantidade.name }}"
                                                         value="{{ form.quantidade.value|default_if_none:0 }}" readonly>
-                                                    <label for="{{ form.novo.id_for_label }}">Novo</label>
+                                                    <label for="{{ form.is_new.id_for_label }}">Novo</label>
                                                     <label class="switch">
                                                         <input type="checkbox" class="btn-slider"
-                                                            {% ifequal form.novo.value True  %} checked="true"
-                                                            {% endifequal %} id="{{ form.novo.id_for_label }}"
-                                                            name="{{ form.novo.name }}" disabled>
+                                                            {% ifequal form.is_new.value True  %} checked="true"
+                                                            {% endifequal %} id="{{ form.is_new.id_for_label }}"
+                                                            name="{{ form.is_new.name }}" disabled>
                                                         <span class="slider"></span>
                                                     </label>
                                                 </div>
@@ -179,8 +222,17 @@
                         </div>
                     </div>
                 </div>
+
+                <!--Fim dos Livros-->
+
             </div>
+
+            <!--Fim das Opação dos livros-->
+
         </div>
+
+        <!--Fim do container Principal-->
+
     </div>
 </body>
 

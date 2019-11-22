@@ -7,15 +7,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Folhas Principais-->
+
     <link rel="stylesheet" href="{% static 'css/principal.css' %}">
     <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
     <title>Alterar Livro</title>
 </head>
 
 <body>
+
+    <!--Container Principal-->
+
     <div class="container">
+
+        <!--Header Principal-->
+
         <div class="header">
+
+            <!--Barra de Navegação-->
+
             <div class="nav">
+                
+                <!--Navegação Esquerda-->
+
                 <div class="nav-left">
                     <div class="nav-text-primary">
                         <style type="text/css">
@@ -29,6 +44,9 @@
                         </a>
                     </div>
                 </div>
+
+                <!--Navegação Direita-->
+
                 <div class="nav-right">
                     <div class="my-account">
                         <img src="{% static '/images/my-account.svg' %}" alt="">
@@ -36,8 +54,19 @@
                     </div>
                 </div>
             </div>
+
+            <!--Fim da Barra de Navegação-->
+
         </div>
+
+        <!--Fim do Container Principal-->
+
+        <!--Aba de Opções-->
+
         <div class="list">
+
+            <!--Conteudo das listas-->
+
             <div class="list-content">
                 <ul>
                     <li><a class="tablinks" href="/" title="Estante" id="defaultopenPage">Estantes</a></li>
@@ -49,8 +78,19 @@
                     <li><a class="tablinks" title="Funcionarios">Funcionarios</a></li>
                 </ul>
             </div>
+
+            <!--Fim do Conteudo das listas-->
+
         </div>
+
+        <!--Fim das Aba de Opções-->
+
+        <!--Inicio do container Principal-->
+
         <div class="content">
+
+            <!--Opação dos livros-->
+
             <div class="tabcontent" id="livro-content">
                 <div class="livro">
                     <h1>Livros - opções</h1>
@@ -64,6 +104,9 @@
                             <a href="/delete/book"><button type="button" class="btn-book">Excluir livro</button></a>
                         </div>
                     </div>
+
+                    <!--Livros-->
+
                     <div class="livro-pages">
                         <div class="livroContent" id="cadastroLivro">
                             <div class="cadastro-content">
@@ -141,12 +184,13 @@
                                                 value="{{ form.genero.value|default_if_none:'' }}"
                                                 placeholder="Gênero do Livro" style="width: 20%;">
 
-                                            <label for="{{ form.novo.id_for_label }}">Novo ou usado (binário)</label>
+                                            <label for="{{ form.is_new.id_for_label }}">Novo ou usado (binário)</label>
 
                                             <label class="switch">
                                                 <input type="checkbox" class="btn-slider"
-                                                    {% ifequal form.novo.value True  %} checked="true" {% endifequal %}
-                                                    id="{{ form.novo.id_for_label }}" name="{{ form.novo.name }}">
+                                                    {% ifequal form.is_new.value True  %} checked="true"
+                                                    {% endifequal %} id="{{ form.is_new.id_for_label }}"
+                                                    name="{{ form.is_new.name }}">
                                                 <span class="slider"></span>
                                             </label>
                                         </div>
@@ -154,12 +198,13 @@
                                             <label for="{{ form.preco_compra.id_for_label }}">Preço de compra</label>
                                             <input type="text" id="{{ form.preco_compra.id_for_label }}"
                                                 name="{{ form.preco_compra.name }}"
-                                                value="{{ form.preco_compra.value }}" placeholder="R$ 0,00"
-                                                style="width: 18%">
+                                                value="{{ form.preco_compra.value }}"
+                                                placeholder="R$ 0,00" style="width: 18%">
 
                                             <label for="{{ form.preco_venda.id_for_label }}">Preço de venda</label>
                                             <input type="text" id="{{ form.preco_venda.id_for_label }}"
-                                                name="{{ form.preco_venda.name }}" value="{{ form.preco_venda.value }}"
+                                                name="{{ form.preco_venda.name }}"
+                                                value="{{ form.preco_venda.value }}"
                                                 placeholder="R$ 0,00" style="width: 18%">
 
                                             <label for="{{ form.quantidade.id_for_label }}">Quantidade</label>
@@ -180,22 +225,32 @@
                                         <div class="row-cadastro-btn">
                                             <a href="/update/book"><button type="button">Voltar</button></a>
                                             <button type="button" id="book-update-confirm">Atualizar</button>
-                                            {{ form.errors }}
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!--Fim dos Livros-->
+
                 </div>
             </div>
+
+            <!--Fim das Opação dos livros-->
+
         </div>
+
+        <!--Fim do container Principal-->
+
     </div>
 
     <script>
-        let $btnBookCadConfirm = document.getElementById('book-update-confirm');
-        console.log($btnBookCadConfirm)
 
+        //Referencia do Botao
+        let $btnBookCadConfirm = document.getElementById('book-update-confirm');
+
+        //Tela de Confirmação
         $btnBookCadConfirm.addEventListener('click', async function () {
             Swal.fire({
                 'title': 'Confirmação!',
@@ -212,6 +267,8 @@
             })
         })
     </script>
+    
+    <!--Scripts do Projeto-->
 
     <script src="{% static 'js/alertas.js' %}"></script>
     <script src="{% static 'js/sweetalert2.min.js' %}"></script>
